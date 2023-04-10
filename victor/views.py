@@ -48,3 +48,11 @@ def person_list_csv(request):
 
 def success_page(request):
     return render(request, 'success.html')
+
+
+def person_delete(request, pk):
+    """View to delete a person object"""
+    if request.method == 'POST':
+        person = Person.objects.get(id=pk)
+        person.delete()
+    return redirect('/list')
