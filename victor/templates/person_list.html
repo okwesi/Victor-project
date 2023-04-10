@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="mx-auto mt-5 p-3" style="width: 80vw; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+        <h1>Person List</h1>
+        <a href="{% url 'person_list_csv' %}" class="btn btn-primary">Download CSV</a>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Gender</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for person in persons %}
+            <tr>
+              <td>{{ person.name }}</td>
+              <td>{{ person.location }}</td>
+              <td>{{ person.gender }}</td>
+              <td>{{ person.age }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="4">No persons found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+         </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
